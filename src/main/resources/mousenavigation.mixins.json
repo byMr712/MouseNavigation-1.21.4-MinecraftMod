@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.mr712.mousenavigation.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MouseMixin",
+    "RecipeBookScreenAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

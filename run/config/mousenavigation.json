@@ -1,0 +1,12 @@
+{
+  "enabled": true,
+  "enableScreenBack": true,
+  "enableScreenForward": true,
+  "enableBooks": true,
+  "enableRecipeBook": true,
+  "enableCreativeTabs": true,
+  "enableAdvancements": true,
+  "enableChatHistory": true,
+  "enableSound": false,
+  "invertButtons": false
+}
