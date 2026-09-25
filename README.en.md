@@ -2,16 +2,16 @@
 
 # MouseNavigation (Minecraft 1.21.4 Fabric)
 
-**MouseNavigation** is a lightweight and intuitive client-side quality-of-life mod for **Minecraft 1.21.4 (Fabric)** that brings standard mouse side-button navigation to Minecraft user interfaces. With MouseNavigation, the lower side button (Mouse 4) acts as "Back" and the upper side button (Mouse 5) acts as "Forward", allowing you to seamlessly flip book pages, cycle inventory tabs, browse recipe books, and close menus without affecting in-game controls.
+**MouseNavigation** is a lightweight and intuitive client-side quality-of-life mod for **Minecraft 1.21.4 (Fabric)** that brings standard mouse side-button navigation and middle-click chat sending to Minecraft user interfaces. With MouseNavigation, the lower side button (Mouse 4) acts as "Back", the upper side button (Mouse 5) acts as "Forward", and the Middle Mouse Button (wheel click) sends chat messages, all without affecting in-game controls.
 
 ---
 
 ## 🎯 Primary Purpose
 
-In modern operating systems and web browsers, mouse side buttons (Mouse 4 and Mouse 5 / Back and Forward) are universal standards for back/forward navigation. However, vanilla Minecraft interfaces ignore these buttons, forcing players to constantly reach for `Esc`, keyboard arrow keys, or click small on-screen arrow widgets.
+In modern operating systems and web browsers, mouse side buttons (Mouse 4 and Mouse 5 / Back and Forward) are universal standards for back/forward navigation. However, vanilla Minecraft interfaces ignore these buttons, forcing players to constantly reach for `Esc`, `Enter`, keyboard arrow keys, or click small on-screen arrow widgets.
 
 **MouseNavigation** fixes this:
-- **In GUI screens (menus, containers, inventories, books, chat)**: mouse navigation buttons provide instant back and forward actions.
+- **In GUI screens (menus, containers, inventories, books, chat)**: mouse navigation buttons provide instant back and forward actions, and middle-click sends chat messages.
 - **In-game (when no screen is open)**: the mod is completely transparent and **does not intercept clicks**; mouse buttons perform whatever action you configured in vanilla Minecraft keybindings.
 
 ---
@@ -19,7 +19,7 @@ In modern operating systems and web browsers, mouse side buttons (Mouse 4 and Mo
 ## 🛠️ Features & Behavior
 
 1. **Back Button (Mouse Button 4 / XBUTTON1 / Lower Side Button)**:
-   - **Screens and Menus (Settings, chests, crafting tables, pause menu, world select, etc.)**: instantly closes the current screen or returns to the previous menu (equivalent to `Esc` / Back / Done button).
+   - **Screens and Menus (Settings, chests, crafting tables, pause menu, world select, etc.)**: instantly closes the current screen or returns to the previous menu (equivalent to `Esc`).
    - **Books & Lecterns (`BookScreen`, `LecternScreen`)**: flips to the previous page (`<`).
    - **Recipe Book (`RecipeBookWidget`)**: switches to the previous recipe page.
    - **Creative Inventory (`CreativeInventoryScreen`)**: switches to the previous item group tab.
@@ -34,22 +34,25 @@ In modern operating systems and web browsers, mouse side buttons (Mouse 4 and Mo
    - **Chat Screen**: cycles forward through chat message history (equivalent to `↓` arrow).
    - **Screen History Navigation**: returns forward to child screens if you navigated back from them.
 
-3. **ModMenu Integration & Customization**:
-   - Includes a built-in config screen accessible via **ModMenu**. Each navigation feature (books, chat, tabs, recipes, screen close) can be individually toggled, along with sound feedback and button swapping.
+3. **Middle Mouse Button (Mouse Button 3 / MMB / Scroll Wheel Click)**:
+   - **Chat Screen (`ChatScreen`)**: sends the typed message immediately (equivalent to `Enter`).
+
+4. **ModMenu Integration & Customization**:
+   - Includes a built-in config screen accessible via **ModMenu**. Each navigation feature (books, chat, middle-click send, tabs, recipes, screen close) can be individually toggled, along with sound feedback and button swapping.
 
 ---
 
 ## 🎮 Behavior Matrix
 
-| Interface | Back Button (Mouse 4) | Forward Button (Mouse 5) |
-|---|---|---|
-| **Standard Menus & Containers** (Settings, chests, crafting, pause) | Close / Back (`Esc`) | Forward through screen history |
-| **Books & Lecterns** | Previous page (`<`) | Next page (`>`) |
-| **Recipe Book** | Previous recipe page | Next recipe page |
-| **Creative Inventory** | Previous tab | Next tab |
-| **Advancements Screen** | Previous category | Next category |
-| **Chat** | Previous message history (`↑`) | Next message history (`↓`) |
-| **In-game (No Screen Open)** | Vanilla player action | Vanilla player action |
+| Interface | Back Button (Mouse 4) | Forward Button (Mouse 5) | Middle Click (MMB) |
+|---|---|---|---|
+| **Standard Menus & Containers** (Settings, chests, crafting, pause) | Close / Back (`Esc`) | Forward through history | — |
+| **Books & Lecterns** | Previous page (`<`) | Next page (`>`) | — |
+| **Recipe Book** | Previous recipe page | Next recipe page | — |
+| **Creative Inventory** | Previous tab | Next tab | — |
+| **Advancements Screen** | Previous category | Next category | — |
+| **Chat** | Previous message history (`↑`) | Next message history (`↓`) | **Send message (`Enter`)** |
+| **In-game (No Screen Open)** | Vanilla player action | Vanilla player action | Vanilla player action |
 
 ---
 
@@ -63,6 +66,7 @@ When **ModMenu** is installed, you can customize:
 - **Creative Tabs**: switch creative inventory tabs.
 - **Advancements**: switch advancement categories.
 - **Chat History**: cycle previously sent messages.
+- **Chat Send (MMB)**: send chat messages by clicking the mouse wheel.
 - **Sound Feedback**: play a subtle click sound upon navigating.
 - **Invert Buttons**: swap Mouse 4 and Mouse 5.
 

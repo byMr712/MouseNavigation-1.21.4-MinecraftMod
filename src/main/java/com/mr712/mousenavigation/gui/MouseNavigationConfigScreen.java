@@ -22,95 +22,98 @@ public class MouseNavigationConfigScreen extends Screen {
     @Override
     protected void init() {
         int centerX = this.width / 2;
-        int startY = 36;
+        int startY = 34;
         int rowHeight = 24;
-        int btnWidth = 310;
+        int totalWidth = 320;
+        int halfWidth = 156;
         int btnHeight = 20;
 
-        // Option 1: Master Enable
+        int col1X = centerX - (totalWidth / 2);
+        int col2X = col1X + halfWidth + 8;
+
+        // Row 0: Master Enable (Full Width)
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY, btnWidth, btnHeight,
+                col1X, startY, totalWidth, btnHeight,
                 "mousenavigation.config.enabled",
                 tempConfig.enabled,
                 () -> tempConfig.enabled = !tempConfig.enabled,
                 null
         ));
 
-        // Option 2: Screen Back
+        // Row 1: Screen Back (Col 1) & Screen Forward (Col 2)
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight, btnWidth, btnHeight,
+                col1X, startY + rowHeight, halfWidth, btnHeight,
                 "mousenavigation.config.screen_back",
                 tempConfig.enableScreenBack,
                 () -> tempConfig.enableScreenBack = !tempConfig.enableScreenBack,
                 "mousenavigation.config.screen_back.tooltip"
         ));
-
-        // Option 3: Screen Forward
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 2, btnWidth, btnHeight,
+                col2X, startY + rowHeight, halfWidth, btnHeight,
                 "mousenavigation.config.screen_forward",
                 tempConfig.enableScreenForward,
                 () -> tempConfig.enableScreenForward = !tempConfig.enableScreenForward,
                 "mousenavigation.config.screen_forward.tooltip"
         ));
 
-        // Option 4: Books & Lecterns
+        // Row 2: Books (Col 1) & Recipe Book (Col 2)
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 3, btnWidth, btnHeight,
+                col1X, startY + rowHeight * 2, halfWidth, btnHeight,
                 "mousenavigation.config.books",
                 tempConfig.enableBooks,
                 () -> tempConfig.enableBooks = !tempConfig.enableBooks,
                 "mousenavigation.config.books.tooltip"
         ));
-
-        // Option 5: Recipe Book
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 4, btnWidth, btnHeight,
+                col2X, startY + rowHeight * 2, halfWidth, btnHeight,
                 "mousenavigation.config.recipe_book",
                 tempConfig.enableRecipeBook,
                 () -> tempConfig.enableRecipeBook = !tempConfig.enableRecipeBook,
                 "mousenavigation.config.recipe_book.tooltip"
         ));
 
-        // Option 6: Creative Tabs
+        // Row 3: Creative Tabs (Col 1) & Advancements (Col 2)
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 5, btnWidth, btnHeight,
+                col1X, startY + rowHeight * 3, halfWidth, btnHeight,
                 "mousenavigation.config.creative_tabs",
                 tempConfig.enableCreativeTabs,
                 () -> tempConfig.enableCreativeTabs = !tempConfig.enableCreativeTabs,
                 "mousenavigation.config.creative_tabs.tooltip"
         ));
-
-        // Option 7: Advancements
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 6, btnWidth, btnHeight,
+                col2X, startY + rowHeight * 3, halfWidth, btnHeight,
                 "mousenavigation.config.advancements",
                 tempConfig.enableAdvancements,
                 () -> tempConfig.enableAdvancements = !tempConfig.enableAdvancements,
                 "mousenavigation.config.advancements.tooltip"
         ));
 
-        // Option 8: Chat History
+        // Row 4: Chat History (Col 1) & Chat Send on Middle Click (Col 2)
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 7, btnWidth, btnHeight,
+                col1X, startY + rowHeight * 4, halfWidth, btnHeight,
                 "mousenavigation.config.chat_history",
                 tempConfig.enableChatHistory,
                 () -> tempConfig.enableChatHistory = !tempConfig.enableChatHistory,
                 "mousenavigation.config.chat_history.tooltip"
         ));
-
-        // Option 9: Click Sound Effect
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 8, btnWidth, btnHeight,
+                col2X, startY + rowHeight * 4, halfWidth, btnHeight,
+                "mousenavigation.config.chat_middle_click",
+                tempConfig.enableChatMiddleClickSend,
+                () -> tempConfig.enableChatMiddleClickSend = !tempConfig.enableChatMiddleClickSend,
+                "mousenavigation.config.chat_middle_click.tooltip"
+        ));
+
+        // Row 5: Click Sound (Col 1) & Invert Buttons (Col 2)
+        addDrawableChild(createToggleOption(
+                col1X, startY + rowHeight * 5, halfWidth, btnHeight,
                 "mousenavigation.config.sound",
                 tempConfig.enableSound,
                 () -> tempConfig.enableSound = !tempConfig.enableSound,
                 "mousenavigation.config.sound.tooltip"
         ));
-
-        // Option 10: Invert Buttons
         addDrawableChild(createToggleOption(
-                centerX - (btnWidth / 2), startY + rowHeight * 9, btnWidth, btnHeight,
+                col2X, startY + rowHeight * 5, halfWidth, btnHeight,
                 "mousenavigation.config.invert",
                 tempConfig.invertButtons,
                 () -> tempConfig.invertButtons = !tempConfig.invertButtons,
@@ -134,6 +137,7 @@ public class MouseNavigationConfigScreen extends Screen {
             current.enableCreativeTabs = tempConfig.enableCreativeTabs;
             current.enableAdvancements = tempConfig.enableAdvancements;
             current.enableChatHistory = tempConfig.enableChatHistory;
+            current.enableChatMiddleClickSend = tempConfig.enableChatMiddleClickSend;
             current.enableSound = tempConfig.enableSound;
             current.invertButtons = tempConfig.invertButtons;
             current.save();

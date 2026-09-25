@@ -25,6 +25,7 @@ public class MouseNavigationConfig {
     public boolean enableCreativeTabs = true;
     public boolean enableAdvancements = true;
     public boolean enableChatHistory = true;
+    public boolean enableChatMiddleClickSend = true;
     public boolean enableSound = false;
     public boolean invertButtons = false;
 
@@ -74,6 +75,7 @@ public class MouseNavigationConfig {
         this.enableCreativeTabs = true;
         this.enableAdvancements = true;
         this.enableChatHistory = true;
+        this.enableChatMiddleClickSend = true;
         this.enableSound = false;
         this.invertButtons = false;
     }
@@ -88,6 +90,7 @@ public class MouseNavigationConfig {
         copy.enableCreativeTabs = this.enableCreativeTabs;
         copy.enableAdvancements = this.enableAdvancements;
         copy.enableChatHistory = this.enableChatHistory;
+        copy.enableChatMiddleClickSend = this.enableChatMiddleClickSend;
         copy.enableSound = this.enableSound;
         copy.invertButtons = this.invertButtons;
         return copy;

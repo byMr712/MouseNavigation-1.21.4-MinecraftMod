@@ -41,6 +41,14 @@ public class MouseNavigationHandler {
             return false;
         }
 
+        // Middle mouse button in ChatScreen sends the message
+        if (button == GLFW.GLFW_MOUSE_BUTTON_MIDDLE && currentScreen instanceof ChatScreen && config.enableChatMiddleClickSend) {
+            if (currentScreen.keyPressed(GLFW.GLFW_KEY_ENTER, 0, 0)) {
+                playClickSound(client, config);
+                return true;
+            }
+        }
+
         boolean isBack = (!config.invertButtons && button == GLFW.GLFW_MOUSE_BUTTON_4)
                 || (config.invertButtons && button == GLFW.GLFW_MOUSE_BUTTON_5);
         boolean isForward = (!config.invertButtons && button == GLFW.GLFW_MOUSE_BUTTON_5)
