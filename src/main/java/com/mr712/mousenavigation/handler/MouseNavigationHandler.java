@@ -60,7 +60,7 @@ public class MouseNavigationHandler {
                 }
             }
             if (isBack && config.enableScreenBack) {
-                currentScreen.close();
+                triggerBack(currentScreen);
                 playClickSound(client, config);
                 return true;
             }
@@ -77,8 +77,7 @@ public class MouseNavigationHandler {
                 }
             }
             if (isBack && config.enableScreenBack) {
-                recordClosedScreen(currentScreen);
-                currentScreen.close();
+                triggerBack(currentScreen);
                 playClickSound(client, config);
                 return true;
             }
@@ -95,8 +94,7 @@ public class MouseNavigationHandler {
                 }
             }
             if (isBack && config.enableScreenBack) {
-                recordClosedScreen(currentScreen);
-                currentScreen.close();
+                triggerBack(currentScreen);
                 playClickSound(client, config);
                 return true;
             }
@@ -113,8 +111,7 @@ public class MouseNavigationHandler {
                 }
             }
             if (isBack && config.enableScreenBack) {
-                recordClosedScreen(currentScreen);
-                currentScreen.close();
+                triggerBack(currentScreen);
                 playClickSound(client, config);
                 return true;
             }
@@ -145,15 +142,21 @@ public class MouseNavigationHandler {
             }
         }
 
-        // 7. General Screen Back / Close
+        // 7. General Screen Back / Close (Esc)
         if (isBack && config.enableScreenBack) {
-            recordClosedScreen(currentScreen);
-            currentScreen.close();
+            triggerBack(currentScreen);
             playClickSound(client, config);
             return true;
         }
 
         return false;
+    }
+
+    private static void triggerBack(Screen currentScreen) {
+        recordClosedScreen(currentScreen);
+        if (!currentScreen.keyPressed(GLFW.GLFW_KEY_ESCAPE, 0, 0)) {
+            currentScreen.close();
+        }
     }
 
     private static void recordClosedScreen(Screen screen) {
